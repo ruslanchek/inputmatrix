@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Input matrix</title>
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script src="jquery.input-matrix.js"></script>
+    </head>
+    <body>
+    	<h1>Input matrix plugin demo</h1>
+    	
+        <h2>Demo 1</h2>
+        <div id="placeholder1"></div>
+        <br>
+
+        <h2>Demo 2</h2>
+        <div id="placeholder2"></div>
+        
+        <h2>Demo 3</h2>
+        <div id="placeholder3"></div>
+
+        <script>
+            $(function(){
+            	$('#placeholder1').inputMatrix();
+            	
+                $('#placeholder2').inputMatrix({
+					//Number of rows
+                    rows    : 7,
+					
+					//Number of cols
+                    cols    : 5,
+					
+					//Prefix of the inputs name (will be "my_input_one_2_4" for row 2 and col 4 input item) 
+                    name    : 'my_input_one',
+
+					//Set autocomplete tag to all input[type="text"] item in the matrix
+                    autocomplete: false,
+					
+					//Initial values array
+                    values  : [
+                        ['1_1', 	'1_2', 	'1_3', 	'1_4', 	'1_5'],
+                        ['2_1', 	'2_2', 	'2_3', 	'2_4', 	'2_5'],
+                        ['3_1', 	'3_2', 	'3_3', 	'3_4', 	'3_5'],
+                        ['4_1', 	'4_2', 	'4_3', 	'4_4', 	'4_5']
+                    ],
+					
+					//Callback after delete the row node, and return order number of deleted row
+					onRowDelete: function(row_num){
+						
+					},
+					
+					//Callback after add the row node, and return order number of just created row
+					onRowAdd: function(row_num){
+						
+					}
+                });
+
+                $('#placeholder3').inputMatrix({
+                    rows    : 3,
+                    cols    : 3,
+                    name    : 'my_input_two'
+                });
+
+                $('#placeholder2').inputMatrix('setValue', 1, 2, 'Test 1');
+                $('#placeholder2').inputMatrix('setValue', 2, 3, 'Test 2');
+                $('#placeholder2').inputMatrix('setValue', 3, 3, 'Test 3');
+            });
+        </script>
+    </body>
+</html>
